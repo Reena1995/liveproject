@@ -1,0 +1,48 @@
+@media only screen and (max-width: 991.5px) {
+    .right__side_wrapper .inner_content_text h3 {
+        font-size: 2.1rem;
+    }
+    .inner__wrapper {
+        padding: 20px;
+    }
+    .main__section__wrapper {
+        overflow: scroll;
+    }
+}
+
+@media (min-width: 280px) and (max-width: 700px) {
+    .inner__wrapper {
+        max-width: 100%;
+        width: 100%;
+        height: min-content;
+        margin-top: 50px;
+        padding: 10px;
+    }
+
+    .form_inner_div {
+        width: 90%;
+    }
+
+    .theme-btn-outline,
+    .theme-btn,
+    .left__side_wrapper form .form-btn,
+    #pwdModal .form-btn {
+        min-width: 150px;
+    }
+    .right__side_wrapper .inner_content_text {
+        left: 5%;
+    }
+    .right__side_wrapper .inner_content_text h4 {
+        font-size: 1.3rem;
+    }
+    .right__side_wrapper .inner_content_text h3 {
+        font-size: 1.6rem;
+    }
+    .custom-tabs .nav-item {
+        margin-left: 5px;
+    }
+    .custom-tabs .nav-tabs .nav-link
+    {
+        font-size: 13px;
+    }
+}
