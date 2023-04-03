@@ -23,6 +23,9 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfessionalController;
 use App\Http\Controllers\ContactController;
 
+use App\Http\Controllers\Employee\UserController as EmployeeController;
+use App\Http\Controllers\Employee\PersonalController as EmpPersonalController;
+
 
 
 
@@ -296,5 +299,21 @@ Route::group(['prefix'=>'contact/','middleware'=>[],'as'=>'contact.'], function(
 //====================================Admin Panel end-----=====================================================
 
 //====================================Employee Panel Start-----=====================================================
+Route::group(['prefix'=>'employeeview/','middleware'=>[],'as'=>'employeeview.'], function(){
+   Route::get('view',[EmployeeController::class,'index'])->name('show');
+  
 
+  
+   
+ });
+
+ /* -----------------==---------- employee personal details start--------------------------*/
+Route::group(['prefix'=>'empPersonal/','middleware'=>[],'as'=>'empPersonal.'], function(){
+ 
+   Route::post('save',[EmpPersonalController::class,'emppersonaldetailAdd'])->name('personaldetail.add');
+  
+   
+   
+});
+/* ------------------------------- employee personal details end  ---------------------------*/
 //====================================Employee Panel Start-----=====================================================

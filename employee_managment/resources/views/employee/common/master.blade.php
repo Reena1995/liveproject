@@ -6,7 +6,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-touch-fullscreen" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <title>Dashboard | Admin Portal</title>
+        <title>Dashboard | Employee Portal</title>
         <link rel="icon" type="image/x-icon" href="{{asset('console/assets/img/favicon.png')}}" />
         <link rel="icon" href="{{asset('console/assets/img/favicon.png')}}" type="image/png" sizes="16x16" />
         <!--PAGE-->
@@ -23,6 +23,18 @@
         <!--Hci Admin CSS-->
         <link rel="stylesheet" type="text/css" href="{{asset('console/assets/css/tbs.css')}}" />
         <!-- Additional library for page -->
+        <!-- jquery ajax cdn -->
+        <script src="{{asset('console/assets/js/jquery-ajax/jquery.min.js')}}"></script>
+         <!-- boostrap-->
+         <link rel="stylesheet" type="text/css" href="{{asset('console/assets/js/bootstrap/css/bootstrap.min.css')}}" />
+          <!-- datatale-->
+         <link href="https://cdn.datatables.net/v/dt/dt-1.13.3/datatables.min.css"/>
+         <link href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css"/>
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"/>
+         
+        <script>
+            var app_url = '{{ url('/') }}';
+        </script>
     </head>
     <!--body with default sidebar pinned -->
 
@@ -34,7 +46,7 @@
         <main class="admin-main">
            
              @include('employee.partial.header')
-             @foreach(['error','success'] as $msg)
+             @foreach(['danger','success'] as $msg)
                     @if(Session::has($msg))
                     <div class="alert alert-{{$msg}}" role="alert">
                     {{session::get($msg)}}
@@ -45,6 +57,8 @@
             
         </main>
 		 @include('employee.partial.footer')
-    </body>
-    @stack('scripts')
+        
+        </body>
+        @stack('scripts')
+   
 </html>
