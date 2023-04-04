@@ -25,8 +25,9 @@ use App\Http\Controllers\ContactController;
 
 use App\Http\Controllers\Employee\UserController as EmployeeController;
 use App\Http\Controllers\Employee\PersonalController as EmpPersonalController;
-
-
+use App\Http\Controllers\Employee\OrganizationController as EmpOrganizationController;
+use App\Http\Controllers\Employee\ProfessionalController as EmpProfessionalController;
+use App\Http\Controllers\Employee\ContactController as EmpContactController;
 
 
 
@@ -310,10 +311,40 @@ Route::group(['prefix'=>'employeeview/','middleware'=>[],'as'=>'employeeview.'],
  /* -----------------==---------- employee personal details start--------------------------*/
 Route::group(['prefix'=>'empPersonal/','middleware'=>[],'as'=>'empPersonal.'], function(){
  
-   Route::post('save',[EmpPersonalController::class,'emppersonaldetailAdd'])->name('personaldetail.add');
-  
-   
+   Route::post('personal/save',[EmpPersonalController::class,'emppersonaldetailAdd'])->name('personaldetail.add');
+   Route::post('education/save',[EmpPersonalController::class,'empeducationdetailAdd'])->name('educationdetail.add');
+   Route::post('document/save',[EmpPersonalController::class,'empdocumentdetailAdd'])->name('documentdetail.add');
+   Route::post('langauge/save',[EmpPersonalController::class,'emplangdetailAdd'])->name('langdetail.add');
    
 });
 /* ------------------------------- employee personal details end  ---------------------------*/
-//====================================Employee Panel Start-----=====================================================
+
+/* -----------------==---------- employee Organization details start--------------------------*/
+Route::group(['prefix'=>'empOrganization/','middleware'=>[],'as'=>'empOrganization.'], function(){
+ 
+   Route::post('bank/save',[EmpOrganizationController::class,'empbankAdd'])->name('bank.add');
+   Route::post('employment/save',[EmpOrganizationController::class,'empemploymentAdd'])->name('employment.add');
+   Route::post('asset/save',[EmpOrganizationController::class,'empassetAdd'])->name('asset.add');
+ 
+});
+/* ------------------------------- employee Organization details end  ---------------------------*/
+
+/* -----------------==---------- employee Professional details start--------------------------*/
+Route::group(['prefix'=>'empProfessional/','middleware'=>[],'as'=>'empProfessional.'], function(){
+ 
+   Route::post('professional/save',[EmpProfessionalController::class,'empprofessionalAdd'])->name('professional.add');
+   Route::post('empworkAdd/save',[EmpProfessionalController::class,'empworkAdd'])->name('empworkAdd.add');
+
+});
+/* ------------------------------- employee Professional details end  ---------------------------*/
+
+/* -----------------==---------- employee Contact details start--------------------------*/
+Route::group(['prefix'=>'empContact/','middleware'=>[],'as'=>'empContact.'], function(){
+ 
+   Route::post('family/save',[EmpContactController::class,'empfamilyAdd'])->name('family.add');
+   Route::post('emergency/save',[EmpContactController::class,'empemergencyAdd'])->name('emergency.add');
+  
+});
+/* ------------------------------- employee Contact details end  ---------------------------*/
+
+//====================================Employee Panel end-----=====================================================

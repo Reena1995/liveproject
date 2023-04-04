@@ -16,7 +16,6 @@ $tabActiveprof = '';
 
 $isTabAcitiveCont= '1'; 
 $tabActivecont = '';
-$submitFinal = false;
 
 if(empty($personal_detail)){
     
@@ -86,8 +85,6 @@ if(empty($personal_detail)){
 
             $tabActiveDetail = '4';
 
-
-
             if(!count($family_details)){
 
                 $tabActivecont = 'family_detail';
@@ -97,8 +94,7 @@ if(empty($personal_detail)){
                 $isTabAcitiveCont = '2';
                 
                 $tabActivecont = 'emergency_detail';
-                $submitFinal = 'true';
-                
+               
                 
                 
             }else{
@@ -158,16 +154,17 @@ if(empty($personal_detail)){
                                                         " id="education-details" role="tabpanel" aria-labelledby="education-details-tab">
                                                             <h5 class="font-weight-semibold p-t-20 m-b-20">Basic2</h5>
                                                         
-                                                           
+                                                            @include('employee.modules.employee.personal.education')
                                                             
                                                         </div>
                                                         <div class="tab-pane fade {{ ($tabActive == 'document_detail') ? 'show active' : '' }}" id="document-details" role="tabpanel" aria-labelledby="document-details-tab">
                                                             <h5 class="font-weight-semibold p-t-20 m-b-20">Basic</h5>
-                                                           
+                                                            @include('employee.modules.employee.personal.document')
+                                                            
                                                         </div>
                                                         <div class="tab-pane fade {{ ($tabActive == 'language_detail') ? 'show active' : '' }}" id="langauge" role="tabpanel" aria-labelledby="langauge-tab">
                                                             <h5 class="font-weight-semibold p-t-20 m-b-20">Details</h5>
-                                                           
+                                                            @include('employee.modules.employee.personal.language')
                                                             
                                                         </div>
                                                     </div>
@@ -199,29 +196,23 @@ if(empty($personal_detail)){
                                                     <div class="tab-content" id="myTabContent1">
                                                         <div class="tab-pane fade show {{ (($tabActiveOrg == 'jobprofile_detail')|| ($isTabAcitiveOrg == 6)) ? 'show active' : '' }}" id="jobprofile-details" role="tabpanel" aria-labelledby="jobprofile-details-tab">
                                                             <h5 class="font-weight-semibold p-t-20 m-b-20">Basic job</h5>
-                                                            
-                                                            
+                                                            @include('employee.modules.employee.organization.job_profile') 
                                                         </div>
                                                         <div class="tab-pane fade  {{ ($tabActiveOrg == 'bankprofile_detail') ? 'show active' : '' }}" id="bank-details" role="tabpanel" aria-labelledby="employment-details-tab">
                                                             <h5 class="font-weight-semibold p-t-20 m-b-20">Basic</h5>
-                                                           
-
-                                                            
+                                                            @include('employee.modules.employee.organization.bank')
                                                         </div>
                                                         <div class="tab-pane fade  {{ ($tabActiveOrg == 'employment_detail') ? 'show active' : '' }}" id="employment-details" role="tabpanel" aria-labelledby="asset-details-tab">
                                                             <h5 class="font-weight-semibold p-t-20 m-b-20">Basic asset</h5>
-                                                            
-
+                                                            @include('employee.modules.employee.organization.employment')
                                                         </div>
                                                         <div class="tab-pane fade  {{ ($tabActiveOrg == 'location_detail') ? 'show active' : '' }}" id="location_detail" role="tabpanel" aria-labelledby="location_detail-tab">
                                                             <h5 class="font-weight-semibold p-t-20 m-b-20">locationDetails</h5>
-                                                            
+                                                            @include('employee.modules.employee.organization.location')
                                                         </div>
                                                         <div class="tab-pane fade  {{ ($tabActiveOrg == 'empasset_detail') ? 'show active' : '' }}" id="asset-details" role="tabpanel" aria-labelledby="bank-details-tab">
                                                             <h5 class="font-weight-semibold p-t-20 m-b-20">asset Details</h5>
-                                                            
-
-
+                                                            @include('employee.modules.employee.organization.asset')
                                                         </div>
                                                     </div>
                                                 
@@ -242,13 +233,12 @@ if(empty($personal_detail)){
                                                 <div class="tab-content" id="myTabContent3">
                                                     <div class="tab-pane fade show {{ (($tabActiveprof == 'professional_detail') || ($isTabAcitiveProf == 3)) ? 'show active' : '' }}" id="professional-details" role="tabpanel" aria-labelledby="professional-details-tab">
                                                         <h5 class="font-weight-semibold p-t-20 m-b-20">Basic job</h5>
-                                                        
+                                                        @include('employee.modules.employee.professional.professional')
                                                         
                                                     </div>
                                                     <div class="tab-pane fade {{ ($tabActiveprof == 'workexp_detail') ? 'show active' : '' }}" id="workexperies-details" role="tabpanel" aria-labelledby="workexperies-details-tab">
                                                         <h5 class="font-weight-semibold p-t-20 m-b-20">Basic</h5>
-                                                     
-                                                        
+                                                        @include('employee.modules.employee.professional.workexperience')
                                                     </div>
                                                 </div>
                                         
@@ -270,17 +260,16 @@ if(empty($personal_detail)){
                                             
                                                 <div class="tab-content" id="myTabContent3">
                                                     <div class="tab-pane fade show {{ ($tabActivecont == 'family_detail')  ? 'show active' : '' }}" id="family-details" role="tabpanel" aria-labelledby="family-details-tab">
-                                                        <h5 class="font-weight-semibold p-t-20 m-b-20">Basic family</h5>
-                                                       
-                                                        
+                                                        <h5 class="font-weight-semibold p-t-20 m-b-20">Basic family</h5> 
+                                                        @include('employee.modules.employee.contact.family')
                                                     </div>
                                                     <div class="tab-pane fade  {{ ($tabActivecont == 'emergency_detail') ? 'show active' : '' }}" id="emergency-details" role="tabpanel" aria-labelledby="emergency-details-tab">
                                                         <h5 class="font-weight-semibold p-t-20 m-b-20">Basic</h5>
-                                                       
+                                                        @include('employee.modules.employee.contact.emergency')
                                                         
                                                     </div>
                                                     <div class="tab-pane fade  {{ ($tabActivecont == 'final_detail') ? 'show active' : '' }}" id="final-details" role="tabpanel" aria-labelledby="final-details-tab">
-                                                       
+                                                        @include('employee.modules.employee.contact.final')
                                                         
                                                     </div>
                                                 </div>
@@ -298,5 +287,37 @@ if(empty($personal_detail)){
         
        	@endsection
  @push('scripts')
-        
+ <script>
+       $(document).ready(function(){
+            $("form[name='employee__add_form']").validate({
+                rules : {
+                    first_name : "required",  
+                    last_name : "required",
+                    company_mail : "required",  
+                    mobile_no : "required",                    
+                },
+                messages : {
+                    first_name : "Please Enter a First Name ",
+                    last_name : "Please Enter  a Last Name ",
+                    company_mail : "Please Enter an Email Id  ",
+                    mobile_no : "Please Enter  a Mobile No ",  
+                    
+                },
+                errorClass: "custom-error",
+                errorElement: "div",
+                errorPlacement: function(error, element) {
+                    var placement = $(element).data('error');
+                    if (placement) {
+                        $(element).append(error)
+                    } else {
+                        console.log(element.prev());
+                        error.insertAfter(element);
+                    }
+                },
+                submitHandler : function(form){
+                    form.submit();
+                }
+            });
+        });
+</script>         
  @endpush

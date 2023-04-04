@@ -175,8 +175,13 @@ class UserController extends Controller
         $city = City::where('is_active', 1)->orderBy('name', 'ASC')->get();
         $personal_detail = EmployeePersonalDetail::where('user_id',$emp->id)->first();
 
-        //emp education 
-        $emp_education_detail = EmpEducationDetail::where('user_id',$emp->id)->first();
+       
+        // dd($educationDetails);
+        $medium = MediumOfInstruction::where('is_active', 1)->orderBy('name', 'ASC')->get();
+        $educationlevel = EducationLevel::where('is_active', 1)->orderBy('name', 'ASC')->get();
+        $educationDetails = EmpEducationDetail::where('user_id',$emp->id)->where('is_active',1)->get();
+		$emp_education_detail = EmpEducationDetail::where('user_id',$emp->id)->first();
+       
 
         //emp document
         $document = DocumentType::where('is_active', 1)->orderBy('type', 'ASC')->get();
@@ -188,10 +193,6 @@ class UserController extends Controller
         $emp_language_detail = EmpLangDetail::where('user_id',$emp->id)->first();
         $emp_languages = EmpLangDetail::where('user_id',$emp->id)->where('is_active',1)->get();
 
-        // dd($educationDetails);
-        $medium = MediumOfInstruction::where('is_active', 1)->orderBy('name', 'ASC')->get();
-        $educationlevel = EducationLevel::where('is_active', 1)->orderBy('name', 'ASC')->get();
-        $educationDetails = EmpEducationDetail::where('user_id',$emp->id)->where('is_active',1)->get();
        
         //job profile
         $emp_job_profile = EmployeeJobProfileDetail::where('user_id',$emp->id)->first();

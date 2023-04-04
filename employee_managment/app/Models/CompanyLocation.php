@@ -9,5 +9,6 @@ class CompanyLocation extends Model
 {
     use HasFactory;
     
+    
    
 }
